@@ -1,0 +1,24 @@
+Usage:
+
+$ phpize
+$ ./configure --enable-zval_alias
+$ make
+$ php -a -d "extension=./modules/zval_alias.so"
+	Interactive shell
+
+	php > $a = 0;
+	php > $b = 1;
+	php > var_dump(is_zval_alias('a', 'b'));
+	bool(false)
+	php > $b = $a;
+	php > var_dump(is_zval_alias('a', 'b'));
+	bool(true)
+	php > $a = 'rofl';
+	php > var_dump(is_zval_alias('a', 'b'));
+	bool(false)
+	php > $b = &$a;
+	php > var_dump(is_zval_alias('a', 'b'));
+	bool(true)
+	php > $a = 'rifk';
+	php > var_dump(is_zval_alias('a', 'b'));
+	bool(true)
