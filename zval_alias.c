@@ -42,6 +42,7 @@ PHP_RINIT_FUNCTION(zval_alias)
 	return SUCCESS;
 }
 
+/* Ripped out of Xdebug project, Copyright (c) 2002-2011 Derick Rethans */
 zval* xdebug_get_php_symbol(char* name, int name_length)
 {
 	HashTable           *st = NULL;
